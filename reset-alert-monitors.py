@@ -2199,9 +2199,13 @@ alert_monitors_ids = [
 
 variables_to_import = {}
 
+# for alert_id in alert_monitors_ids :
+#     variables_to_import[f"ALERTAS_{alert_id}_ULTIMO_ESTADO"] = "OFF"
+#     variables_to_import[f"ALERTAS_{alert_id}_ULTIMO_PROCESSAMENTO"] = "2022-01-01T00:00:00"
+
 for alert_id in alert_monitors_ids :
-    variables_to_import[f"ALERTAS_{alert_id}_ULTIMO_ESTADO"] = "OFF"
-    variables_to_import[f"ALERTAS_{alert_id}_ULTIMO_PROCESSAMENTO"] = "2022-01-01T00:00:00"
+    variables_to_import["ALERTAS_{0}_ULTIMO_ESTADO".format(alert_id)] = "OFF"
+    variables_to_import["ALERTAS_{0}_ULTIMO_PROCESSAMENTO".format(alert_id)] = "2022-01-01T00:00:00"
 
 # json_object = json.dumps(variables_to_import, indent = 4)  
 # print(json_object) 
